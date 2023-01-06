@@ -1,8 +1,11 @@
-package com.ahmedalamin.notetodo
+package com.ahmedalamin.notetodo.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.ahmedalamin.notetodo.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
