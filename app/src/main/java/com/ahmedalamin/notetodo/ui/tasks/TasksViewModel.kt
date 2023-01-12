@@ -7,6 +7,8 @@ import com.ahmedalamin.notetodo.data.PreferencesManager
 import com.ahmedalamin.notetodo.data.SortOrder
 import com.ahmedalamin.notetodo.data.Task
 import com.ahmedalamin.notetodo.data.TaskDao
+import com.ahmedalamin.notetodo.ui.ADD_TASK_RESULT_OK
+import com.ahmedalamin.notetodo.ui.EDIT_TASK_RESULT_OK
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
@@ -69,10 +71,29 @@ class TasksViewModel @ViewModelInject constructor (
         taskEventChannel.send(TasksEvent.NavigateToAddTaskScreen)
     }
 
+    fun onAddEditResult(result: Int){
+        when (result){
+            ADD_TASK_RESULT_OK -> showTaskSavedConfirmationMessage("Task Added")
+            EDIT_TASK_RESULT_OK -> showTaskSavedConfirmationMessage("Task Updated")
+        }
+    }
+
+    fun showTaskSavedConfirmationMessage(text: String) = viewModelScope.launch {
+        taskEventChannel.send(TasksEvent.ShowTAskSavedConfirmationMessage(text))
+    }
+
+    fun onDeleteAllCompletedClick() = viewModelScope.launch {
+            taskEventChannel.send(TasksEvent.NavigateToDeleteAllCompletedScreen)
+    }
+
+
+
     sealed class TasksEvent{
         object NavigateToAddTaskScreen : TasksEvent()
         data class NavigateToEditTaskScreen(val task: Task) : TasksEvent()
         data class ShowUndoDeleteTaskMessage(val task:Task) : TasksEvent()
+        data class ShowTAskSavedConfirmationMessage(val msg: String) : TasksEvent()
+        object NavigateToDeleteAllCompletedScreen : TasksEvent()
     }
 
 }
