@@ -17,6 +17,6 @@ data class Task(
     val created: Long = System.currentTimeMillis()
 
 ):Parcelable{
-    val createdDateFormated : String
+    val createdDateFormatted : String
     get() = DateFormat.getDateTimeInstance().format(created)
 }
