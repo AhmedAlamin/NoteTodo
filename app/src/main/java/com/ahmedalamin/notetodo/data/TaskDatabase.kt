@@ -28,15 +28,13 @@ abstract class TaskDatabase : RoomDatabase() {
            val dao =  database.get().taskDao()
 
             applicationScope.launch {
-                dao.insert(Task(name = "wash cva "))
-                dao.insert(Task(name = "washasd f"))
-                dao.insert(Task(name = "wash tasdf shes", important = true))
-                dao.insert(Task(name = "wae dishes"))
-                dao.insert(Task(name = "cvishes", completed = true))
-                dao.insert(Task(name = "wache dishes"))
-                dao.insert(Task(name = "wash the dishes"))
-                dao.insert(Task(name = "waccccccccsh the dishes", completed = true))
-                dao.insert(Task(name = "wacvasdfhes"))
+                dao.insert(Task(name = "Hi, you can put your tasks like this! "))
+                dao.insert(Task(name = "I wish you a good day \uD83E\uDD70 "))
+                dao.insert(Task(name = "Finished tasks will be like that \uD83D\uDCAA ", completed = true))
+                dao.insert(Task(name = "Swipe left or right to delete \uD83D\uDC48 \uD83D\uDC49 "))
+                dao.insert(Task(name = "You can click on any task to edit ✍\uD83C\uDFFB "))
+                dao.insert(Task(name = "Important tasks will have icon and will be at top ", important = true))
+
             }
 
 

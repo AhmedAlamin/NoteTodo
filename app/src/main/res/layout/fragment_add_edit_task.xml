@@ -11,8 +11,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_gravity="center_vertical"
             android:padding="8dp"
             >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/back"
+                android:scaleType="fitCenter"/>
 
             <EditText
                 android:id="@+id/edit_text_task_name"
@@ -25,13 +32,14 @@
                 android:id="@+id/check_box_important"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Important Task"/>
+                android:text="Important Task?"/>
 
             <TextView
                 android:id="@+id/text_view_date_created"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:textSize="14sp"
                 tools:text="Date Created:"/>
 
 
